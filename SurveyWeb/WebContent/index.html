@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="text/javascript" src="./jquery-3.3.1/jquery.js"></script>
+    <script
+      type="text/javascript"
+      src="./survey-jquery-1.0.78/survey.jquery.js"
+    ></script>
+    <link
+      href="./survey-jquery-1.0.78/survey.css"
+      type="text/css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div id="surveyList"></div>
+
+    <table>
+      <tr>
+        <td><button class="btn btn-large" id="btnLOAD">Load</button></td>
+        <td>
+          <form id="hiddenFORM">
+            <input
+              class="form-loaded"
+              type="text"
+              readonly="readonly"
+              id="hidSURVEYID"
+              name="SURVEYID"
+            />
+            <input type="hidden" id="hidMODE" name="MODE" />
+            <input type="hidden" id="hidFORMID" name="FORMID" />
+            <input type="hidden" id="hidDATAID" name="DATAID" />
+            <input type="hidden" id="hidDATAJSON" name="DATAJSON" />
+            <input type="hidden" id="hidMEMO" name="MEMO" />
+            <input type="hidden" id="hidSAVETIME" name="SAVETIME" />
+          </form>
+        </td>
+        <td><button class="form-loaded" id="btnSAVE">Save</button></td>
+        <td><button class="form-loaded" id="btnPREV">&lt;&lt;</button></td>
+        <td><button class="form-loaded" id="btnNEXT">&gt;&gt;</button></td>
+      </tr>
+    </table>
+
+    <div id="surveyForm" class="form-loaded"></div>
+
+    <div id="surveyResult"></div>
+
+    <script type="text/javascript" src="./index.js"></script>
+  </body>
+</html>

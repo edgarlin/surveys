@@ -1,0 +1,110 @@
+{
+  "pages": [
+    {
+      "name": "ToDoList",
+      "elements": [
+        {
+          "type": "matrixdynamic",
+          "name": "List",
+          "title": "List",
+          "columns": [
+            {
+              "name": "Feature",
+              "title": {
+                "zh-tw": "項目"
+              },
+              "cellType": "text"
+            },
+            {
+              "name": "Demand",
+              "title": {
+                "zh-tw": "需求"
+              }
+            },
+            {
+              "name": "Impact",
+              "title": {
+                "zh-tw": "影響"
+              }
+            },
+            {
+              "name": "Effort",
+              "title": {
+                "zh-tw": "工時"
+              }
+            },
+            {
+              "name": "Score",
+              "title": {
+                "zh-tw": "積分"
+              },
+              "cellType": "expression",
+              "expression": "{row.Demand}+{row.Impact}+{row.Effort}"
+            },
+            {
+              "name": "Status",
+              "title": {
+                "zh-tw": "狀態"
+              },
+              "cellType": "dropdown",
+              "choices": [
+                {
+                  "value": "Idea",
+                  "text": {
+                    "zh-tw": "構思"
+                  }
+                },
+                {
+                  "value": "Planning",
+                  "text": {
+                    "zh-tw": "計畫"
+                  }
+                },
+                {
+                  "value": "Building",
+                  "text": {
+                    "zh-tw": "修改"
+                  }
+                },
+                {
+                  "value": "Launched",
+                  "text": {
+                    "zh-tw": "完成"
+                  }
+                }
+              ]
+            }
+          ],
+          "choices": [
+            {
+              "value": 1,
+              "text": {
+                "default": "Low",
+                "zh-tw": "低"
+              }
+            },
+            {
+              "value": 2,
+              "text": {
+                "default": "Medium",
+                "zh-tw": "中"
+              }
+            },
+            {
+              "value": 3,
+              "text": {
+                "default": "High",
+                "zh-tw": "高"
+              }
+            }
+          ],
+          "cellType": "radiogroup",
+          "rowCount": 1,
+          "addRowLocation": "bottom",
+          "addRowText": "+",
+          "removeRowText": "x"
+        }
+      ]
+    }
+  ]
+}

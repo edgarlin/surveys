@@ -1,0 +1,58 @@
+{
+  "pages": [
+    {
+      "name": "調查表",
+      "elements": [
+        {
+          "type": "comment",
+          "name": "question1",
+          "title": "說明事項"
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "客戶登錄系統調查表",
+          "title": "客戶登錄系統調查表",
+          "columns": [
+            {
+              "name": "APID",
+              "isRequired": true
+            },
+            {
+              "name": "系統名稱"
+            },
+            {
+              "name": "業務負責人",
+              "isRequired": true
+            },
+            {
+              "name": "使用電文",
+              "cellType": "checkbox",
+              "colCount": 1,
+              "hasOther": true,
+              "choices": ["searchCIF", "newCIF", "updateCIF", "openAccount"],
+              "otherText": "透過TR"
+            },
+            {
+              "name": "中文姓名欄位擴至100全形字",
+              "cellType": "comment"
+            },
+            {
+              "name": "郵遞區號擴至3+8",
+              "cellType": "comment"
+            }
+          ],
+          "cellType": "text",
+          "columnColCount": 1,
+          "rowCount": 1,
+          "addRowText": "+"
+        }
+      ],
+      "title": "調查表",
+      "navigationButtonsVisibility": "hide"
+    }
+  ],
+  "showPrevButton": false,
+  "showTitle": false,
+  "showPageTitles": false,
+  "showQuestionNumbers": "off"
+}
