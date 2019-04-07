@@ -68,6 +68,7 @@ var funcPROC = function(_action, _parm) {
 var loadLastestData = function() {
   var resp = funcPROC("DATA", $("#hiddenFORM").serializeArray());
   $("#hidSURVEYID").val(resp.SURVEYID || "");
+  $("#hidMEMO").val(resp.MEMO || "");
   //$("#hidDATAJSON").val(resp.DATAJSON || "{}");
   surveyObj_Form.data = JSON.parse(resp.DATAJSON || {});
 };
@@ -95,6 +96,7 @@ $("#btnSAVE").click(function() {
 $("#btnPREV").click(function() {
   var resp = funcPROC("PREV", $("#hiddenFORM").serializeArray());
   $("#hidSURVEYID").val(resp.SURVEYID);
+  $("#hidMEMO").val(resp.MEMO || "");
   surveyObj_Form.data = JSON.parse(resp.DATAJSON || {});
 });
 
@@ -102,6 +104,7 @@ $("#btnPREV").click(function() {
 $("#btnNEXT").click(function() {
   var resp = funcPROC("NEXT", $("#hiddenFORM").serializeArray());
   $("#hidSURVEYID").val(resp.SURVEYID);
+  $("#hidMEMO").val(resp.MEMO || "");
   surveyObj_Form.data = JSON.parse(resp.DATAJSON || {});
 });
 

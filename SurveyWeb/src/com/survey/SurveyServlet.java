@@ -65,7 +65,7 @@ public class SurveyServlet extends HttpServlet {
 		super();
 		try {
 			Class.forName("org.postgresql.Driver");
-			this.conn = DriverManager.getConnection("jdbc:postgresql://192.168.0.107:5432/admin", "admin", "admin");
+			this.conn = DriverManager.getConnection("jdbc:postgresql://192.168.1.107:5432/admin", "admin", "admin");
 			// this.connection.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -162,13 +162,14 @@ public class SurveyServlet extends HttpServlet {
 		return (gson.toJson(parm));
 	}
 
-	public String saveData(String FORMID, String DATAJSON) {
+	public String saveData(String FORMID, String DATAJSON, String MEMO) {
 		PARMJSON parm = new PARMJSON();
 		String sql = "insert into surveys (surveyid,mode,formid,dataid,datajson,memo,savetime) "
-				+ " values (nextval('surveyseq'),'DATA',?,null,?::JSON,null,current_timestamp) ";
+				+ " values (nextval('surveyseq'),'DATA',?,null,?::JSON,?,current_timestamp) ";
 		try (PreparedStatement ps = this.conn.prepareStatement(sql)) {
 			ps.setString(1, FORMID);
 			ps.setObject(2, DATAJSON);
+			ps.setString(3, MEMO);
 			ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -212,7 +213,7 @@ public class SurveyServlet extends HttpServlet {
 		} else if ("DATA".equals(action)) {
 			outJson = getLatestData(parmFORMID);
 		} else if ("SAVE".equals(action)) {
-			outJson = saveData(parmFORMID, parmDATAJSON);
+			outJson = saveData(parmFORMID, parmDATAJSON, request.getRemoteAddr());
 		} else if ("PREV".equals(action)) {
 			outJson = getPrevData(parmFORMID, new BigDecimal(parmSURVEYID));
 		} else if ("NEXT".equals(action)) {
